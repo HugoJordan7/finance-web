@@ -1,14 +1,32 @@
-# Protótipo — Projeto 2
+# Finance — Gerenciador de Finanças Pessoais
 
 Autor: Hugo Jordan Cirilo Teotonio
 
-Tema: Finance — Gerenciador de finanças pessoais
+Tema: Finance - Gerenciador de finanças pessoais
 
 Descrição: Um site para controle de finanças pessoais, capaz de registrar investimentos, despesas mensais e metas financeiras informadas pelo usuário.
 
 Público-alvo: Pessoas de qualquer idade, geralmente entre 16-70 anos, que desejam organizar melhor a sua vida financeira.
 
-## Link do Figma
+## Tecnologias utilizadas
+
+- React
+- Vite
+- React Router
+- CSS
+
+## Como rodar
+
+Pré-requisito: **Node.js 20.19+ ou 22+** instalado.
+
+```bash
+npm install
+npm run dev
+```
+
+Depois abra **http://localhost:5173** no navegador.
+
+## Link do protótipo do Figma
 https://www.figma.com/design/ZNqDFjrhwxNgejs53lHyl1/Finance-Web?node-id=1-294&t=FjTkpgdcLWo9LUkE-1
 
 ## Fluxo principal prototipado
