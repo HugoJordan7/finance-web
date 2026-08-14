@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0a0e1a;
+  color: #e5e9f2;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: #131a2c;
+  border: 1px solid #232d47;
+  border-radius: 14px;
+  padding: 32px 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.auth-logo {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+}
+
+.home-logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #ffffff;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #8a93ab;
+  font-size: 13px;
+  margin: 0 0 4px;
+}
+
+.auth-description {
+  text-align: center;
+  color: #8a93ab;
+  font-size: 13.5px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #a7afc4;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #0d1425;
+  border: 1px solid #2b3654;
+  border-radius: 8px;
+  color: #e5e9f2;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+input::placeholder {
+  color: #5b6480;
+}
+
+input:focus {
+  border-color: #6c8ee8;
+}
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  background: #5b7fe6;
+  color: #101431;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: #4a6cd6;
+}
+
+.erro {
+  color: #f16a5f;
+  font-size: 13px;
+  margin: -6px 0 0;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #232d47;
+  margin: 22px 0 18px;
+}
+
+.auth-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #8a93ab;
+}
+
+.auth-footer a {
+  color: #6c8ee8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Home ----- */
+
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #1a2238;
+  background: #0d1322;
+}
+
+.home-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-brand-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 15px;
+}
+
+.home-brand-sub {
+  font-size: 11px;
+  color: #7d86a0;
+  margin-top: -2px;
+}
+
+.home-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: right;
+}
+
+.home-user-email {
+  font-size: 13px;
+  color: #e5e9f2;
+}
+
+.home-user-plan {
+  font-size: 11px;
+  color: #7d86a0;
+}
+
+.home-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #232d47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c8ee8;
+}
+
+.home-body {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-welcome {
+  background: #131a2c;
+  border: 1px solid #232d47;
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+
+.home-welcome h2 {
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.home-welcome p {
+  margin: 0;
+  color: #a7afc4;
+  font-size: 14px;
+}
+
+.users-card {
+  background: #131a2c;
+  border: 1px solid #232d47;
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+
+.users-card h3 {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #a7afc4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.users-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.users-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #0d1425;
+  border: 1px solid #1e2740;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.users-card li span {
+  color: #7d86a0;
+}
+
+.btn-sair {
+  margin-top: 24px;
+  padding: 11px 22px;
+  background: transparent;
+  border: 1px solid #2b3654;
+  color: #e5e9f2;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+
+.btn-sair:hover {
+  border-color: #f16a5f;
+  color: #f16a5f;
+}
