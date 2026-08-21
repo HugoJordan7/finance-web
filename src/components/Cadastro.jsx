@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import logo from '../assets/logo.svg';
+import { cadastrarUsuario } from '../services/api';
 
-function Cadastro({ usuarios, onCadastrar }) {
+function Cadastro() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setErro('');
 
@@ -24,13 +26,15 @@ function Cadastro({ usuarios, onCadastrar }) {
       return;
     }
 
-    if (usuarios.some((u) => u.email === email)) {
-      setErro('Este e-mail já está cadastrado.');
-      return;
+    setCarregando(true);
+    try {
+      await cadastrarUsuario({ nome, email, senha });
+      navigate('/login');
+    } catch (err) {
+      setErro(err.message);
+    } finally {
+      setCarregando(false);
     }
-
-    onCadastrar({ nome, email, senha });
-    navigate('/login');
   }
 
   return (
@@ -48,7 +52,7 @@ function Cadastro({ usuarios, onCadastrar }) {
             <input
               id="nome"
               type="text"
-              placeholder="Nome Completo"
+              placeholder="Hugo Jordan"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
             />
@@ -89,8 +93,8 @@ function Cadastro({ usuarios, onCadastrar }) {
 
           {erro && <p className="erro">{erro}</p>}
 
-          <button type="submit" className="btn-primary">
-            CONFIRMAR
+          <button type="submit" className="btn-primary" disabled={carregando}>
+            {carregando ? <span className="spinner" /> : 'CONFIRMAR'}
           </button>
         </form>
 
