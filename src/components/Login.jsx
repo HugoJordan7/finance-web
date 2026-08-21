@@ -1,28 +1,36 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import logo from '../assets/logo.svg';
+import { fazerLogin } from '../services/api';
 
-function Login({ usuarios, onLogin }) {
+function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
+
     e.preventDefault();
     setErro('');
 
-    const usuario = usuarios.find(
-      (u) => u.email === email && u.senha === senha
-    );
-
-    if (!usuario) {
-      setErro('E-mail ou senha inválidos.');
+    if (!email || !senha) {
+      setErro('Preencha todos os campos.');
       return;
     }
 
-    onLogin(usuario);
-    navigate('/home');
+    setCarregando(true);
+
+    try {
+      const usuario = await fazerLogin(email, senha);
+      onLogin(usuario);
+      navigate('/home');
+    } catch (err) {
+      setErro(err.message);
+    } finally {
+      setCarregando(false);
+    }
   }
 
   return (
@@ -60,8 +68,8 @@ function Login({ usuarios, onLogin }) {
 
           {erro && <p className="erro">{erro}</p>}
 
-          <button type="submit" className="btn-primary">
-            CONFIRMAR
+          <button type="submit" className="btn-primary" disabled={carregando}>
+            {carregando ? <span className="spinner" /> : 'CONFIRMAR'}
           </button>
         </form>
 
